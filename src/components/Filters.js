@@ -52,7 +52,7 @@ const Filters = ({ setFilters, filtering, clearFilter, setClearFilter }) => {
             filtering(true, 0, Number.MAX_SAFE_INTEGER);
           }}
         >
-          Clear Filter
+          Clear
         </button>
       </div>
     </div>

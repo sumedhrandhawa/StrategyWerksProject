@@ -11,7 +11,16 @@ body {
 }
 
 .App h1 {
+  font-family: 'Poppins', sans-serif;
+  font-size: 2.2rem;
+  font-weight: 600;
+  color: #2c3e50;
   text-align: center;
+  margin: 20px 0;
+  padding: 10px;
+  /* border-bottom: 1px solid lightgray; */
+  text-transform: capitalize;
+  letter-spacing: 1px;
 }
 
 .product-list {
@@ -29,22 +38,59 @@ body {
 
 .product-item {
   background: white;
-  border: 1px solid #ddd;
-  border-radius: 5px;
-  margin: 10px;
-  padding: 10px;
   width: 100%;
   max-width: 300px;
-  transition: transform 0.2s;
+  font-family: 'Poppins', sans-serif;
+  border: 1px solid #e0e0e0;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  background-color: #ffffff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  text-align: center;
+  padding: 15px;
+  margin: 15px;
+}
+
+.product-item:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 12px rgba(0, 0, 0, 0.15);
 }
 
 .product-item:hover {
   transform: scale(1.05);
 }
 
+.product-item h4 {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 600;
+  color: #4a90e2;
+  text-transform: uppercase;
+  letter-spacing: 1.5px;
+  text-align: center;
+  border-bottom: 2px solid #d9d9d9;
+  padding-bottom: 10px;
+  margin-bottom: 20px;
+  transition: all 0.3s ease;
+}
+
 .product-item img {
-  width: 100%;
+  max-width: 100%;
   height: auto;
+  border-radius: 5px;
+  margin-bottom: 10px;
+  transition: transform 0.3s ease;
+  min-height: 300px;
+}
+
+.product-item p {
+  font-size: 1rem;
+  color: #2c3e50;
+  margin-top: 5px;
 }
 
 .filter {
@@ -75,7 +121,7 @@ body {
   width: 80px;
   margin-left: 10px;
   background-color: transparent;
-  border: 1px solid gray;
+  border: 1px solid rgb(199, 197, 197);
   border-radius: 20px;
   cursor: pointer;
 }
