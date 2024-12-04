@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/StrategyWerksProject/static/css/main.2eeb46d8.css",
+    "main.js": "/StrategyWerksProject/static/js/main.8de7acc7.js",
+    "index.html": "/StrategyWerksProject/index.html",
+    "main.2eeb46d8.css.map": "/StrategyWerksProject/static/css/main.2eeb46d8.css.map",
+    "main.8de7acc7.js.map": "/StrategyWerksProject/static/js/main.8de7acc7.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2eeb46d8.css",
+    "static/js/main.8de7acc7.js"
+  ]
+}
