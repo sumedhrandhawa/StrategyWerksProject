@@ -1,6 +1,12 @@
 import React, { useEffect, useRef } from "react";
 
-const Filters = ({ setFilters, filtering, clearFilter, setClearFilter }) => {
+const Filters = ({
+  setFilters,
+  filtering,
+  clearFilter,
+  setClearFilter,
+  setSortType,
+}) => {
   const titleRef = useRef(null);
   const minPriceRef = useRef(null);
   const maxPriceRef = useRef(null);
@@ -19,6 +25,7 @@ const Filters = ({ setFilters, filtering, clearFilter, setClearFilter }) => {
       minPrice: 0,
       maxPrice: Number.MAX_SAFE_INTEGER,
     });
+    setSortType("");
   }, [clearFilter]);
 
   return (

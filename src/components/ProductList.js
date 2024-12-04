@@ -142,6 +142,7 @@ const ProductList = () => {
         filtering={filtering}
         clearFilter={clearFilter}
         setClearFilter={setClearFilter}
+        setSortType={setSortType}
       />
       <SortByDropdown
         onSortChange={onSortChange}
