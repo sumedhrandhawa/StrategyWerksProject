@@ -3,6 +3,7 @@ import axios from "axios";
 import ProductItem from "./ProductItem";
 import ProductModal from "./ProductModal";
 import Filters from "./Filters";
+import SortByDropdown from "./SortByDropDown";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -86,6 +87,7 @@ const ProductList = () => {
         clearFilter={clearFilter}
         setClearFilter={setClearFilter}
       />
+      <SortByDropdown />
       <div className="product-list">
         {products?.map((product, i) => (
           <ProductItem key={i} product={product} openModal={openModal} />

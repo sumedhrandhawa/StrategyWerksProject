@@ -14,6 +14,11 @@ const Filters = ({ setFilters, filtering, clearFilter, setClearFilter }) => {
     titleRef.current.value = "";
     minPriceRef.current.value = "";
     maxPriceRef.current.value = "";
+    setFilters({
+      title: "",
+      minPrice: 0,
+      maxPrice: Number.MAX_SAFE_INTEGER,
+    });
   }, [clearFilter]);
 
   return (

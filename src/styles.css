@@ -147,7 +147,6 @@ body {
   max-width: 90%;
   /* Set a maximum width relative to the viewport */
   width: 100%;
-  /* Full width */
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
   overflow-y: auto;
   /* Add scroll for long content */
@@ -188,12 +187,10 @@ body {
 @media (max-width: 600px) {
   .modal-content {
     padding: 15px;
-    /* Adjust padding for smaller screens */
   }
 
   .close {
     font-size: 20px;
-    /* Smaller close button on small screens */
   }
 }
 
@@ -202,4 +199,58 @@ body {
     max-width: 600px;
     /* Larger max width for medium screens */
   }
+}
+
+
+
+/* CSS for Drop-Down sort by */
+
+.sort-dropdown {
+  width: 100%;
+  padding-left: 10px;
+  margin-top: 20px;
+}
+
+.dropdown-button {
+  font-family: 'Poppins', sans-serif;
+  font-weight: 500;
+  color: #ffffff;
+  background-color: #4a90e2;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  height: 38px;
+  width: 80px;
+}
+
+.dropdown-button:hover {
+  background-color: #357abd;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-radius: 5px;
+  z-index: 1;
+  min-width: 180px;
+}
+
+.sort-dropdown:hover .dropdown-content {
+  display: block;
+}
+
+label {
+  display: flex;
+  font-family: 'Poppins', sans-serif;
+  color: #2c3e50;
+  cursor: pointer;
+  padding: 10px;
+}
+
+input[type="radio"] {
+  width: 20px;
 }
