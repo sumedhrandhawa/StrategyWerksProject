@@ -37,7 +37,10 @@ const ProductList = () => {
           (page - 1) * LIMIT
         }&limit=${LIMIT}`
       );
-      isSortRequired([...products, ...response.data]);
+      filtering(filters.title, filters.minPrice, filters.maxPrice, [
+        ...allData,
+        ...response.data,
+      ]);
       setAllData((prev) => [...prev, ...response.data]); // Append to existing data
       setHasMore(!(response.data.length < LIMIT));
     } catch (err) {
@@ -50,14 +53,6 @@ const ProductList = () => {
   const loadMore = () => {
     setPage((prev) => prev + 1);
     setCallApi(!callApi);
-    setFilters({
-      title: "",
-      minPrice: 0,
-      maxPrice: Number.MAX_SAFE_INTEGER,
-    });
-    setSortType("");
-    setClearFilter(!clearFilter);
-    filtering("clear", 0, Number.MAX_SAFE_INTEGER);
   };
 
   const openModal = (product) => {
@@ -98,24 +93,35 @@ const ProductList = () => {
     }
   };
 
-  const filtering = (clear, min, max) => {
-    const { title, minPrice, maxPrice } = filters;
-    let data = allData;
-    let final = data.filter(
-      (each) =>
-        each.price >= Number(min === 0 ? 0 : minPrice || 0) &&
-        each.price <= Number(max || maxPrice || Number.MAX_SAFE_INTEGER) &&
-        (clear ||
-          title.trim() === "" ||
-          each.title.toLowerCase().includes(title.toLowerCase()))
+  const shouldFilter = () => {
+    return (
+      filters.title !== "" ||
+      filters.minPrice !== 0 ||
+      filters.maxPrice !== Number.MAX_SAFE_INTEGER
     );
-    isSortRequired(final);
   };
 
-  const override = {
-    // display: "block",
-    // margin: "0 auto",
-    // borderColor: "#4a90e2",
+  const filtering = (clear, min, max, updatedData) => {
+    let { title, minPrice, maxPrice } = filters;
+
+    if (updatedData?.length > 0) {
+      title = clear || "";
+      minPrice = min || 0;
+      maxPrice = max || Number.MAX_SAFE_INTEGER;
+    }
+
+    const data = updatedData || allData;
+    const final = shouldFilter()
+      ? data.filter(
+          (each) =>
+            each.price >= Number(min === 0 ? 0 : minPrice || 0) &&
+            each.price <= Number(max || maxPrice || Number.MAX_SAFE_INTEGER) &&
+            ((clear && !updatedData) ||
+              title.trim() === "" ||
+              each.title.toLowerCase().includes(title.toLowerCase()))
+        )
+      : data;
+    isSortRequired(final);
   };
 
   return (
