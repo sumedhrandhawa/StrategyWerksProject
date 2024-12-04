@@ -57,5 +57,8 @@ Follow these steps to set up and run the project locally:
 
 
    3. **KNOWN LIMITATIONS OR ADDITIONAL ENHANCEMENTS I WOULD MAKE**
-   •	API loadmore should be in sync with sort and filter athough sort and filter are working fine together. 
-   •	Since this API didn't have the provision of handle all this together, so most of the things I am handling at the front-end.
+   •  Since we aren't using our own api so filter only works on the received products, If there would have been our own api, we would have applied the filter on the server side itself for better and smooth results.
+   •	The API didn't have the provision to handle all filters together, so most of the things I am handling at the front-end side.
+   •	I would have made separate burger icon to open filter and make use of those options.
+   •	For mobile version, instead of single product I would have made multiple (at least 2) for user to see in a single go.
+   •	If there would have been more pictures for single product, I would have put them in a carousel.
