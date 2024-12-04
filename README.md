@@ -1,6 +1,9 @@
 # E-Commerce Product Dashboard
 
-## How to Run This Project?
+Project is hosted on gitHub Pages.
+Link to the project: https://sumedhrandhawa.github.io/StrategyWerksProject/
+
+## How to Run This Project on local?
 
 Follow these steps to set up and run the project locally:
 
@@ -25,3 +28,29 @@ Follow these steps to set up and run the project locally:
    
 6. **Open your browser and navigate to:**
    http://localhost:3000
+
+
+## What all is covered in the project.
+
+1. **API Choice**
+   I choose a 3rd party API from https://api.escuelajs.co/api/v1/products
+
+2. **Functionality**
+   •	Product List: It displays products dynamically fetched from an API.
+	•	Implemented infinite scrolling and a “Load More” button for better performance.
+	•	Product Filters: It is filtering functionality for product title and price range;
+	•	Implemented a “Clear Filters” button to reset all input fields and filters.
+	•	Product Sorting: Sorting by creating a dropdown menu with radio buttons for sorting options:
+	•	Price: High to Low, Low to High.
+	•	Alphabetical: A-Z, Z-A.
+	•	Ensured only one option is selectable at a time.
+	•	Product Modal: Designed a modal to display additional product details when a product is clicked.
+	•	Modal data was fetched dynamically for optimization.
+   •	Ensured immutability while updating the state (e.g., in filtering and sorting).
+	•	Applied lazy loading and conditional rendering for better performance.
+	•	Handled datasets efficiently by appending new data instead of reloading all data.
+   •	Displayed meaningful error messages in case of API failures.
+	•	Added loading... for a better user experience during data fetches.
+   •	Sorting logic with immutability and correct conditions.
+	•	Filtering products with edge-case handling.
+	•	Smooth scroll restoration during data fetches.

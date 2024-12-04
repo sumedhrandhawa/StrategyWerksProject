@@ -4,6 +4,7 @@ import ProductItem from "./ProductItem";
 import ProductModal from "./ProductModal";
 import Filters from "./Filters";
 import SortByDropdown from "./SortByDropDown";
+import ClipLoader from "react-spinners/ClipLoader";
 
 const ProductList = () => {
   const [products, setProducts] = useState([]);
@@ -111,15 +112,36 @@ const ProductList = () => {
     isSortRequired(final);
   };
 
+  const override = {
+    // display: "block",
+    // margin: "0 auto",
+    // borderColor: "#4a90e2",
+  };
+
   return (
     <>
+      {loading && (
+        <div className="loader-div">
+          <ClipLoader
+            color={"#4a90e2"}
+            loading={loading}
+            size={70}
+            aria-label="Loading Spinner"
+            data-testid="loader"
+          />
+        </div>
+      )}
       <Filters
         setFilters={setFilters}
         filtering={filtering}
         clearFilter={clearFilter}
         setClearFilter={setClearFilter}
       />
-      <SortByDropdown onSortChange={onSortChange} sortType={sortType} setSortType={setSortType}/>
+      <SortByDropdown
+        onSortChange={onSortChange}
+        sortType={sortType}
+        setSortType={setSortType}
+      />
       <div className="product-list">
         {products?.map((product, i) => (
           <ProductItem key={i} product={product} openModal={openModal} />
@@ -129,7 +151,11 @@ const ProductList = () => {
         )}
       </div>
       <div className="product-list-button">
-        {hasMore && !loading && <button onClick={loadMore}>Load More</button>}
+        {hasMore && !loading && (
+          <button className="dropdown-button" onClick={loadMore}>
+            Load More
+          </button>
+        )}
       </div>
       {loading && <p style={{ textAlign: "center" }}>Loading...</p>}
       {error && <p style={{ textAlign: "center" }}>Error: {error}</p>}
