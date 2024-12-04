@@ -1,12 +1,11 @@
 import React, { useState } from "react";
 
-const SortByDropdown = ({ onSortChange }) => {
-  const [selectedOption, setSelectedOption] = useState("");
+const SortByDropdown = ({ onSortChange, sortType, setSortType }) => {
 
   const handleSortChange = (event) => {
     const value = event.target.value;
-    setSelectedOption(value);
-    // onSortChange(value); // Pass the selected value to the parent or handler
+    setSortType(value);
+    onSortChange(value); // Pass the selected value to the parent or handler
   };
 
   return (
@@ -18,7 +17,7 @@ const SortByDropdown = ({ onSortChange }) => {
             type="radio"
             name="sort"
             value="priceHighToLow"
-            checked={selectedOption === "priceHighToLow"}
+            checked={sortType === "priceHighToLow"}
             onChange={handleSortChange}
           />
           Price High to Low
@@ -28,7 +27,7 @@ const SortByDropdown = ({ onSortChange }) => {
             type="radio"
             name="sort"
             value="priceLowToHigh"
-            checked={selectedOption === "priceLowToHigh"}
+            checked={sortType === "priceLowToHigh"}
             onChange={handleSortChange}
           />
           Price Low to High
@@ -38,7 +37,7 @@ const SortByDropdown = ({ onSortChange }) => {
             type="radio"
             name="sort"
             value="alphabeticalAZ"
-            checked={selectedOption === "alphabeticalAZ"}
+            checked={sortType === "alphabeticalAZ"}
             onChange={handleSortChange}
           />
           Alphabetically A-Z
@@ -48,7 +47,7 @@ const SortByDropdown = ({ onSortChange }) => {
             type="radio"
             name="sort"
             value="alphabeticalZA"
-            checked={selectedOption === "alphabeticalZA"}
+            checked={sortType === "alphabeticalZA"}
             onChange={handleSortChange}
           />
           Alphabetically Z-A

@@ -192,6 +192,10 @@ body {
   .close {
     font-size: 20px;
   }
+
+  .sort-dropdown {
+    margin-left: 0px !important;
+  }
 }
 
 @media (min-width: 601px) {
@@ -206,9 +210,10 @@ body {
 /* CSS for Drop-Down sort by */
 
 .sort-dropdown {
-  width: 100%;
+  width: fit-content;
   padding-left: 10px;
   margin-top: 20px;
+  margin-left: 6%;
 }
 
 .dropdown-button {

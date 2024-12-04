@@ -20,6 +20,7 @@ const ProductList = () => {
   const [hasMore, setHasMore] = useState(false);
   const [callApi, setCallApi] = useState(false);
   const [clearFilter, setClearFilter] = useState(false);
+  const [sortType, setSortType] = useState("");
   const LIMIT = 10; // Number of items to fetch per request
 
   useEffect(() => {
@@ -35,7 +36,7 @@ const ProductList = () => {
           (page - 1) * LIMIT
         }&limit=${LIMIT}`
       );
-      setProducts((prev) => [...prev, ...response.data]);
+      isSortRequired([...products, ...response.data]);
       setAllData((prev) => [...prev, ...response.data]); // Append to existing data
       setHasMore(!(response.data.length < LIMIT));
     } catch (err) {
@@ -53,6 +54,7 @@ const ProductList = () => {
       minPrice: 0,
       maxPrice: Number.MAX_SAFE_INTEGER,
     });
+    setSortType("");
     setClearFilter(!clearFilter);
     filtering("clear", 0, Number.MAX_SAFE_INTEGER);
   };
@@ -63,6 +65,36 @@ const ProductList = () => {
 
   const closeModal = () => {
     setModalProduct(null);
+  };
+
+  const onSortChange = (value) => {
+    setSortType(value);
+    sorting(value, products);
+  };
+
+  const sorting = (sortBy, data) => {
+    const sort = sortBy || sortType;
+    setProducts(() => {
+      const sortedProducts = [...data]; // Creating a new array so that I avoid mutating states
+      if (sort === "priceHighToLow") {
+        sortedProducts.sort((a, b) => b.price - a.price);
+      } else if (sort === "priceLowToHigh") {
+        sortedProducts.sort((a, b) => a.price - b.price);
+      } else if (sort === "alphabeticalAZ") {
+        sortedProducts.sort((a, b) => a.title.localeCompare(b.title));
+      } else if (sort === "alphabeticalZA") {
+        sortedProducts.sort((a, b) => b.title.localeCompare(a.title));
+      }
+      return sortedProducts;
+    });
+  };
+
+  const isSortRequired = (data) => {
+    if (sortType) {
+      sorting(sortType, data);
+    } else {
+      setProducts(data);
+    }
   };
 
   const filtering = (clear, min, max) => {
@@ -76,7 +108,7 @@ const ProductList = () => {
           title.trim() === "" ||
           each.title.toLowerCase().includes(title.toLowerCase()))
     );
-    setProducts(final);
+    isSortRequired(final);
   };
 
   return (
@@ -87,7 +119,7 @@ const ProductList = () => {
         clearFilter={clearFilter}
         setClearFilter={setClearFilter}
       />
-      <SortByDropdown />
+      <SortByDropdown onSortChange={onSortChange} sortType={sortType} setSortType={setSortType}/>
       <div className="product-list">
         {products?.map((product, i) => (
           <ProductItem key={i} product={product} openModal={openModal} />
