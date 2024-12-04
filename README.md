@@ -54,3 +54,8 @@ Follow these steps to set up and run the project locally:
    •	Sorting logic with immutability and correct conditions.
 	•	Filtering products with edge-case handling.
 	•	Smooth scroll restoration during data fetches.
+
+
+   3. **KNOWN LIMITATIONS OR ADDITIONAL ENHANCEMENTS I WOULD MAKE**
+   •	API loadmore should be in sync with sort and filter athough sort and filter are working fine together. 
+   •	Since this API didn't have the provision of handle all this together, so most of the things I am handling at the front-end.
