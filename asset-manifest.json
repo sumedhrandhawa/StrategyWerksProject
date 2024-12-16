@@ -1,10 +1,10 @@
 {
   "files": {
-    "main.css": "/StrategyWerksProject/static/css/main.c8b73bea.css",
-    "main.js": "/StrategyWerksProject/static/js/main.cd5a55fb.js",
-    "index.html": "/StrategyWerksProject/index.html",
-    "main.c8b73bea.css.map": "/StrategyWerksProject/static/css/main.c8b73bea.css.map",
-    "main.cd5a55fb.js.map": "/StrategyWerksProject/static/js/main.cd5a55fb.js.map"
+    "main.css": "/ecomlite/static/css/main.c8b73bea.css",
+    "main.js": "/ecomlite/static/js/main.cd5a55fb.js",
+    "index.html": "/ecomlite/index.html",
+    "main.c8b73bea.css.map": "/ecomlite/static/css/main.c8b73bea.css.map",
+    "main.cd5a55fb.js.map": "/ecomlite/static/js/main.cd5a55fb.js.map"
   },
   "entrypoints": [
     "static/css/main.c8b73bea.css",
